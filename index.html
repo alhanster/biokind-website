@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Biokind Analytics — Data Science for Good</title>
+<meta name="description" content="A student-run nonprofit providing free data science services to healthcare nonprofits. Donor trends, patient demographics, fundraising — analyzed by student analysts from 23 universities worldwide." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="assets/biokind-emblem.png" />
+</head>
+<body data-motif="dots" data-show-orbs="1">
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav" data-screen-label="Nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo">
+      <img class="emblem" src="assets/biokind-emblem.png" alt="" />
+      <span>Biokind <span style="color:var(--muted); font-weight:450;">Analytics</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#partners">Our Partners</a>
+      <a href="#how">How we work</a>
+      <a href="#services">Services</a>
+      <a href="#chapters">Chapters</a>
+      <a href="Press.html">Press</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#cta" class="btn btn-ghost">Join a chapter</a>
+      <a href="#cta" class="btn btn-primary">Request analysis<span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero hero-full" id="top" data-screen-label="Hero">
+
+  <!-- Full-bleed background photo -->
+  <div class="hero-bg-photo" aria-hidden="true">
+    <img src="assets/home.jpg" alt="" />
+    <div class="hero-photo-overlay"></div>
+  </div>
+
+  <!-- Dot grid motif overlay -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="orb orb-2"></div>
+    <div class="dot-grid"></div>
+  </div>
+
+  <!-- Animated data canvas -->
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+  <!-- Main content -->
+  <div class="container hero-content">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Data Science for Good · Est. 2022</span>
+      <h1 class="display">
+        Explore how data science<br />
+        can help further your mission.<br />
+        <span class="ink-em light-em">For free.</span>
+      </h1>
+      <p class="lead hero-lead">"Today, even small businesses use data analysis and statistical modeling to boost profits and efficiency. Our mission is to provide the same opportunity for healthcare non-profit organizations to further their impact."</p>
+      <div class="hero-cta">
+        <a href="#cta" class="btn btn-primary">Request a project<span class="arrow">→</span></a>
+        <a href="#how" class="btn btn-ghost-light">See how it works</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar anchored to bottom -->
+  <div class="hero-stats-bar">
+    <div class="container">
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <div class="stat-value" data-count-to="23"><span class="cv">0</span></div>
+          <div class="stat-label">Chapter institutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" data-count-to="80"><span class="cv">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Nonprofit partners served since 2022</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" data-count-to="900">$<span class="cv">0</span><span class="suffix">M+</span></div>
+          <div class="stat-label">In donor and program funds analyzed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ============== PARTNERS ============== -->
+<section class="section partners-section" id="partners" data-screen-label="Partners">
+  <div class="container">
+    <div class="section-head reveal partners-head">
+      <span class="eyebrow">Our partners</span>
+      <h2 class="h2">Trusted by 80+ healthcare nonprofits.</h2>
+      <p class="lead">From regional clinics to international foundations, these are organizations using Biokind's analyses to shape their next program, grant, and board decision.</p>
+    </div>
+
+    <div class="featured-partners reveal" id="featuredPartners"></div>
+
+    <div class="partners-divider reveal">
+      <span class="line"></span>
+      <span class="mono">&amp; 80+ PARTNERS ACROSS THE NETWORK</span>
+      <span class="line"></span>
+    </div>
+
+    <div class="partners-paginated reveal" id="partnersPaginated">
+      <div class="paginated-track" id="paginatedTrack" style="--page: 0;">
+        <div class="paginated-page">
+          <div class="partner-grid" id="partnerGrid1"></div>
+        </div>
+        <div class="paginated-page">
+          <div class="partner-grid" id="partnerGrid2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paginated-controls reveal">
+      <button class="page-btn" id="pagePrev" aria-label="Previous">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="page-dots">
+        <button class="page-dot active" data-page="0" aria-label="Page 1"></button>
+        <button class="page-dot" data-page="1" aria-label="Page 2"></button>
+      </div>
+      <button class="page-btn" id="pageNext" aria-label="Next">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <p class="partners-note">Not all partners displayed.</p>
+  </div>
+</section>
+
+<!-- ============== HOW IT WORKS ============== -->
+<section class="section how-photo-bg" id="how" data-screen-label="How it works">
+  <div class="how-bg-photo" aria-hidden="true">
+    <img src="assets/how-it-works.jpg" alt="" />
+    <div class="how-photo-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h2">From data to decision<br />in three steps.</h2>
+      <p class="lead">A typical engagement runs six to ten weeks end-to-end. We scope tightly, work transparently, and leave you with both the answer and the tooling to repeat it next quarter.</p>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-line" aria-hidden="true"></div>
+
+      <div class="how-step reveal">
+        <span class="step-dot"></span>
+        <div class="step-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <span class="step-no">Step 01</span>
+        <h3>Data Intake</h3>
+        <p>A scoping call with your team. We sign mutual NDAs, agree on success metrics, and securely ingest your data — whether that's a Raiser's Edge export or fifteen years of spreadsheets.</p>
+        <div class="deliverables">
+          <div class="deliverable"><span class="check">✓</span> Mutual NDA &amp; data-handling plan</div>
+          <div class="deliverable"><span class="check">✓</span> Scoped statement of work</div>
+          <div class="deliverable"><span class="check">✓</span> Secure data transfer</div>
+        </div>
+      </div>
+
+      <div class="how-step reveal">
+        <span class="step-dot"></span>
+        <div class="step-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/><circle cx="20" cy="8" r="1.2" fill="currentColor"/></svg>
+        </div>
+        <span class="step-no">Step 02</span>
+        <h3>Analyze</h3>
+        <p>A team of 4–6 student analysts cleans, models, and visualizes. Weekly check-ins. A faculty advisor reviews methodology. You see the work in progress, not just the final slide.</p>
+        <div class="deliverables">
+          <div class="deliverable"><span class="check">✓</span> Weekly progress updates</div>
+          <div class="deliverable"><span class="check">✓</span> Faculty-reviewed methodology</div>
+          <div class="deliverable"><span class="check">✓</span> Reproducible analysis notebooks</div>
+        </div>
+      </div>
+
+      <div class="how-step reveal">
+        <span class="step-dot"></span>
+        <div class="step-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M21 3L11 13"/><path d="M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5"/></svg>
+        </div>
+        <span class="step-no">Step 03</span>
+        <h3>Deliver</h3>
+        <p>A board-ready report, an interactive dashboard, and a 60-minute working session with your team. Plus the underlying code, so your next analyst can pick up where we left off.</p>
+        <div class="deliverables">
+          <div class="deliverable"><span class="check">✓</span> Executive report &amp; slide deck</div>
+          <div class="deliverable"><span class="check">✓</span> Interactive dashboard</div>
+          <div class="deliverable"><span class="check">✓</span> Source code &amp; documentation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES (dark) ============== -->
+<section class="impact services-photo-bg" id="services" data-screen-label="Services">
+  <div class="services-bg-photo" aria-hidden="true">
+    <img src="assets/classroom.jpg" alt="" />
+    <div class="services-photo-overlay"></div>
+  </div>
+  <div class="dot-grid" aria-hidden="true"></div>
+  <div class="orb" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color: var(--teal);">What we deliver</span>
+      <h2 class="h2" style="color: var(--paper);">Three practice areas. One outcome:<br />decisions you can defend.</h2>
+      <p class="lead" style="color: rgba(250,250,247,0.7);">Every engagement is staffed by a team of 4–6 student analysts under a faculty advisor and a senior project lead. Methodology is documented. Code is yours to keep.</p>
+    </div>
+
+    <div class="services-grid dark-cards">
+
+      <article class="service-card reveal">
+        <span class="num">01 / Donor</span>
+        <h3>Donor Analysis</h3>
+        <p>Segment your supporter base, surface lapsed-giving risk, and forecast year-end revenue. We turn raw CRM exports into a clear retention strategy.</p>
+        <div class="service-tags">
+          <span class="tag">Retention modeling</span>
+          <span class="tag">LTV</span>
+          <span class="tag">Cohort analysis</span>
+        </div>
+        <div class="viz">
+          <svg viewBox="0 0 280 148" style="width:100%;height:100%;display:block;" preserveAspectRatio="xMidYMid meet">
+            <!-- grid lines -->
+            <line x1="36" y1="14" x2="36" y2="118" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <line x1="36" y1="14" x2="272" y2="14" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="36" y1="40" x2="272" y2="40" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="36" y1="66" x2="272" y2="66" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="36" y1="92" x2="272" y2="92" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="36" y1="118" x2="272" y2="118" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <!-- y axis labels -->
+            <text x="30" y="18" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="8" font-family="JetBrains Mono,monospace">100%</text>
+            <text x="30" y="44" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="8" font-family="JetBrains Mono,monospace">75%</text>
+            <text x="30" y="70" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="8" font-family="JetBrains Mono,monospace">50%</text>
+            <text x="30" y="96" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="8" font-family="JetBrains Mono,monospace">25%</text>
+            <!-- year groups: 2020-2024, each group = retained (teal) + new (white/20) -->
+            <!-- 2020: retained 58%, new 42% -->
+            <rect x="42" y="68" width="14" height="50" rx="2" fill="rgba(116,220,187,0.90)"/>
+            <rect x="57" y="83" width="14" height="35" rx="2" fill="rgba(255,255,255,0.20)"/>
+            <!-- 2021: retained 63%, new 37% -->
+            <rect x="83" y="61" width="14" height="57" rx="2" fill="rgba(116,220,187,0.90)"/>
+            <rect x="98" y="87" width="14" height="31" rx="2" fill="rgba(255,255,255,0.20)"/>
+            <!-- 2022: retained 67%, new 33% -->
+            <rect x="124" y="55" width="14" height="63" rx="2" fill="rgba(116,220,187,0.90)"/>
+            <rect x="139" y="91" width="14" height="27" rx="2" fill="rgba(255,255,255,0.20)"/>
+            <!-- 2023: retained 71%, new 29% -->
+            <rect x="165" y="49" width="14" height="69" rx="2" fill="rgba(116,220,187,1)"/>
+            <rect x="180" y="93" width="14" height="25" rx="2" fill="rgba(255,255,255,0.20)"/>
+            <!-- 2024: retained 76%, new 24% -->
+            <rect x="206" y="40" width="14" height="78" rx="2" fill="rgba(116,220,187,1)" filter="url(#glow)"/>
+            <rect x="221" y="94" width="14" height="24" rx="2" fill="rgba(255,255,255,0.20)"/>
+            <!-- x labels -->
+            <text x="57" y="130" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8" font-family="JetBrains Mono,monospace">2020</text>
+            <text x="98" y="130" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8" font-family="JetBrains Mono,monospace">2021</text>
+            <text x="139" y="130" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8" font-family="JetBrains Mono,monospace">2022</text>
+            <text x="180" y="130" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8" font-family="JetBrains Mono,monospace">2023</text>
+            <text x="221" y="130" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8" font-family="JetBrains Mono,monospace">2024</text>
+            <!-- legend -->
+            <rect x="37" y="139" width="8" height="6" rx="1" fill="rgba(116,220,187,0.9)"/>
+            <text x="48" y="145" fill="rgba(255,255,255,0.55)" font-size="8" font-family="JetBrains Mono,monospace">Retained</text>
+            <rect x="110" y="139" width="8" height="6" rx="1" fill="rgba(255,255,255,0.20)"/>
+            <text x="121" y="145" fill="rgba(255,255,255,0.55)" font-size="8" font-family="JetBrains Mono,monospace">New</text>
+          </svg>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">02 / Patient</span>
+        <h3>Patient Analysis</h3>
+        <p>Map who you serve and who you're missing. Demographics, access gaps, outcomes trends. Visualized for board decks and grant applications.</p>
+        <div class="service-tags">
+          <span class="tag">Demographics</span>
+          <span class="tag">Access mapping</span>
+          <span class="tag">Outcomes</span>
+        </div>
+        <div class="viz">
+          <svg viewBox="0 0 280 148" style="width:100%;height:100%;display:block;" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- donut: cx=90,cy=74,r=46,inner=28 -->
+            <!-- Under 18: 22% = 79.2deg, stroke-dasharray=22 78 -->
+            <circle cx="90" cy="74" r="38" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="18"/>
+            <circle cx="90" cy="74" r="38" fill="none" stroke="rgba(116,220,187,1)" stroke-width="18" stroke-dasharray="23.88 100" stroke-dashoffset="0" transform="rotate(-90 90 74)" stroke-linecap="butt"/>
+            <circle cx="90" cy="74" r="38" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="18" stroke-dasharray="31.4 100" stroke-dashoffset="-23.88" transform="rotate(-90 90 74)" stroke-linecap="butt"/>
+            <circle cx="90" cy="74" r="38" fill="none" stroke="rgba(116,220,187,0.45)" stroke-width="18" stroke-dasharray="28.9 100" stroke-dashoffset="-55.28" transform="rotate(-90 90 74)" stroke-linecap="butt"/>
+            <circle cx="90" cy="74" r="38" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="18" stroke-dasharray="15.72 100" stroke-dashoffset="-84.18" transform="rotate(-90 90 74)" stroke-linecap="butt"/>
+            <!-- center label -->
+            <text x="90" y="70" text-anchor="middle" fill="white" font-size="16" font-weight="600" font-family="Inter,sans-serif">4,218</text>
+            <text x="90" y="82" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-size="8" font-family="JetBrains Mono,monospace">PATIENTS</text>
+            <!-- legend -->
+            <rect x="152" y="28" width="9" height="9" rx="2" fill="rgba(116,220,187,1)"/>
+            <text x="165" y="37" fill="rgba(255,255,255,0.80)" font-size="9.5" font-family="Inter,sans-serif">Under 18</text>
+            <text x="165" y="48" fill="rgba(255,255,255,0.45)" font-size="8.5" font-family="JetBrains Mono,monospace">22%</text>
+            <rect x="152" y="58" width="9" height="9" rx="2" fill="rgba(255,255,255,0.55)"/>
+            <text x="165" y="67" fill="rgba(255,255,255,0.80)" font-size="9.5" font-family="Inter,sans-serif">18 – 40</text>
+            <text x="165" y="78" fill="rgba(255,255,255,0.45)" font-size="8.5" font-family="JetBrains Mono,monospace">31%</text>
+            <rect x="152" y="88" width="9" height="9" rx="2" fill="rgba(116,220,187,0.45)"/>
+            <text x="165" y="97" fill="rgba(255,255,255,0.80)" font-size="9.5" font-family="Inter,sans-serif">40 – 65</text>
+            <text x="165" y="108" fill="rgba(255,255,255,0.45)" font-size="8.5" font-family="JetBrains Mono,monospace">29%</text>
+            <rect x="152" y="118" width="9" height="9" rx="2" fill="rgba(255,255,255,0.22)"/>
+            <text x="165" y="127" fill="rgba(255,255,255,0.80)" font-size="9.5" font-family="Inter,sans-serif">65+</text>
+            <text x="165" y="138" fill="rgba(255,255,255,0.45)" font-size="8.5" font-family="JetBrains Mono,monospace">18%</text>
+          </svg>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <span class="num">03 / Event</span>
+        <h3>Event Analysis</h3>
+        <p>Measure what your gala, race, or campaign actually returned. Attendance, ROI, channel attribution.</p>
+        <div class="service-tags">
+          <span class="tag">ROI</span>
+          <span class="tag">Attribution</span>
+          <span class="tag">Benchmarking</span>
+        </div>
+        <div class="viz">
+          <svg viewBox="0 0 280 148" style="width:100%;height:100%;display:block;" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="grossGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(116,220,187,0.30)"/>
+                <stop offset="100%" stop-color="rgba(116,220,187,0)"/>
+              </linearGradient>
+              <linearGradient id="netGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.15)"/>
+                <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+            </defs>
+            <!-- grid -->
+            <line x1="36" y1="14" x2="36" y2="112" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <line x1="36" y1="112" x2="272" y2="112" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <line x1="36" y1="14" x2="272" y2="14" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="36" y1="46" x2="272" y2="46" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="36" y1="79" x2="272" y2="79" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 4"/>
+            <!-- y axis -->
+            <text x="30" y="18" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="8" font-family="JetBrains Mono,monospace">$150k</text>
+            <text x="30" y="50" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="8" font-family="JetBrains Mono,monospace">$100k</text>
+            <text x="30" y="83" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="8" font-family="JetBrains Mono,monospace">$50k</text>
+            <!-- Gross revenue fill -->
+            <path d="M46,88 C72,80 98,52 124,44 C150,36 176,24 202,20 C228,16 254,18 268,16 L268,112 L46,112 Z" fill="url(#grossGrad)"/>
+            <!-- Net revenue fill -->
+            <path d="M46,105 C72,100 98,88 124,80 C150,72 176,60 202,55 C228,50 254,50 268,48 L268,112 L46,112 Z" fill="url(#netGrad)"/>
+            <!-- Gross line -->
+            <path d="M46,88 C72,80 98,52 124,44 C150,36 176,24 202,20 C228,16 254,18 268,16" fill="none" stroke="rgba(116,220,187,1)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Net line -->
+            <path d="M46,105 C72,100 98,88 124,80 C150,72 176,60 202,55 C228,50 254,50 268,48" fill="none" stroke="rgba(255,255,255,0.50)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 3"/>
+            <!-- dots on gross -->
+            <circle cx="124" cy="44" r="3" fill="rgba(116,220,187,1)"/>
+            <circle cx="202" cy="20" r="3.5" fill="rgba(116,220,187,1)"/>
+            <!-- x labels -->
+            <text x="46" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="JetBrains Mono,monospace">Gala</text>
+            <text x="90" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="JetBrains Mono,monospace">5K Run</text>
+            <text x="134" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="JetBrains Mono,monospace">Auction</text>
+            <text x="178" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="JetBrains Mono,monospace">Golf</text>
+            <text x="222" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="JetBrains Mono,monospace">Concert</text>
+            <text x="266" y="125" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="7.5" font-family="JetBrains Mono,monospace">Gala '24</text>
+            <!-- legend -->
+            <line x1="37" y1="139" x2="47" y2="139" stroke="rgba(116,220,187,1)" stroke-width="2"/>
+            <text x="50" y="143" fill="rgba(255,255,255,0.55)" font-size="8" font-family="JetBrains Mono,monospace">Gross revenue</text>
+            <line x1="145" y1="139" x2="155" y2="139" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <text x="158" y="143" fill="rgba(255,255,255,0.55)" font-size="8" font-family="JetBrains Mono,monospace">Net revenue</text>
+          </svg>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIALS ============== -->
+<section class="section" id="testimonials" data-screen-label="Testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">From our partners</span>
+      <h2 class="h2">What nonprofit CEOs are saying.</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <article class="testimonial featured reveal">
+        <div class="quote-mark">“</div>
+        <blockquote>Biokind helped our internal team understand our metric better and to share with donors key data points that fuel our mission. They also helped identify how we are reaching underserved communities, which in turn, helps us apply for more grant opportunities.</blockquote>
+        <div class="attribution">
+          <div class="avatar avatar-photo"><img src="assets/david-hancock.jpeg" alt="David Hancock" /></div>
+          <div>
+            <div class="name" style="color: var(--paper);">David Hancock</div>
+            <div class="role">CEO, Heroes for Children</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial reveal">
+        <div class="quote-mark">“</div>
+        <blockquote>The analysis will help us dig further into our donor data and make more informed decisions about solicitations and stewardship. It highlighted the timing of revenue and where to leverage campaigns.</blockquote>
+        <div class="attribution">
+          <div class="avatar avatar-photo"><img src="assets/jill-brunner.jpeg" alt="Jill Brunner" /></div>
+          <div>
+            <div class="name">Jill Brunner</div>
+            <div class="role">VP, ALS Association</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PARTNERS & CHAPTERS ============== -->
+<section class="section logo-section" id="chapters" data-screen-label="Chapters">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The network</span>
+      <h2 class="h2">23 university chapters.<br />One mission.</h2>
+    </div>
+
+    <div class="logo-grid reveal" id="chaptersGrid">
+      <div class="logo-cell"><img src="assets/chapters/emory.png" alt="Emory University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/rice.png" alt="Rice University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/johns-hopkins.png" alt="Johns Hopkins University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/duke.png" alt="Duke University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/uva.png" alt="University of Virginia" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/unc.png" alt="UNC Chapel Hill" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/northwestern.png" alt="Northwestern University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/uchicago.png" alt="University of Chicago" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/nyu.png" alt="NYU" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/usc.png" alt="USC" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/ucla.png" alt="UCLA" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/ucsd.png" alt="UC San Diego" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/ucdavis.png" alt="UC Davis" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/illinois.png" alt="University of Illinois" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/uwisconsin.png" alt="University of Wisconsin–Madison" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/northeastern.png" alt="Northeastern University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/rutgers.png" alt="Rutgers University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/brown.png" alt="Brown University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/rochester.png" alt="University of Rochester" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/vanderbilt.png" alt="Vanderbilt University" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/toronto.png" alt="University of Toronto" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/ubc.png" alt="University of British Columbia" loading="lazy" /></div>
+      <div class="logo-cell"><img src="assets/chapters/sydney.png" alt="University of Sydney" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== GET INVOLVED ============== -->
+<section class="section cta-photo-bg" id="cta" data-screen-label="Get Involved">
+  <div class="cta-bg-photo" aria-hidden="true">
+    <img src="assets/get-involved.jpg" alt="" />
+    <div class="cta-photo-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get involved</span>
+      <h2 class="h2">Three ways forward.</h2>
+      <p class="lead">Whether you have data that needs answers, a chapter to start, or capacity to support our work, there's a place for you.</p>
+    </div>
+
+    <div class="cta-grid">
+      <article class="cta-card teal reveal">
+        <span class="audience">For nonprofits</span>
+        <h3>Request a project</h3>
+        <p>If your organization works in healthcare and you have data sitting unanalyzed, tell us about it. We respond to every inquiry within five business days.</p>
+        <span class="corner" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </span>
+        <a href="#" class="btn btn-primary">Submit an inquiry<span class="arrow">→</span></a>
+      </article>
+
+      <article class="cta-card dark reveal">
+        <span class="audience">For students</span>
+        <h3>Join a chapter</h3>
+        <p>Active chapters at 23 universities. No chapter at your school? We'll help you start one, over 80% of our current chapters were founded by students like you.</p>
+        <span class="corner" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </span>
+        <a href="#" class="btn btn-secondary">Find your chapter<span class="arrow">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer id="about" data-screen-label="Footer">
+  <div class="dot-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/biokind-logo.png" alt="Biokind Analytics" />
+        <p>Data science as a public good for the organizations that need it most.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Donor analysis</a>
+        <a href="#services">Patient analysis</a>
+        <a href="#services">Event analysis</a>
+        <a href="#how">Engagement model</a>
+      </div>
+      <div class="foot-col">
+        <h4>Network</h4>
+        <a href="#chapters">University chapters</a>
+        <a href="#chapters">Nonprofit partners</a>
+        <a href="#">Faculty advisors</a>
+        <a href="#">Annual report</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:admin@biokind.org">admin@biokind.org</a>
+        <a href="Press.html">Press &amp; media</a>
+        <a href="mailto:admin@biokind.org?subject=Media%20inquiry">Media inquiries</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Biokind Analytics</span>
+      <span>Privacy · Terms · Data handling</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

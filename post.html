@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Biokind Blog</title>
+<meta name="description" content="Writing from the Biokind Analytics network." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="assets/biokind-emblem.png" />
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav" data-screen-label="Nav">
+  <div class="container nav-inner">
+    <a href="index.html#top" class="nav-logo">
+      <img class="emblem" src="assets/biokind-emblem.png" alt="" />
+      <span>Biokind <span style="color:var(--muted); font-weight:450;">Analytics</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#partners">Our Partners</a>
+      <a href="index.html#how">How we work</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#chapters">Chapters</a>
+      <a href="Press.html" class="active" aria-current="page">Press</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="index.html#cta" class="btn btn-ghost">Join a chapter</a>
+      <a href="index.html#cta" class="btn btn-primary">Request analysis<span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== ARTICLE ============== -->
+<main id="postRoot" data-screen-label="Blog post">
+  <!-- filled by JS from posts.js -->
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer data-screen-label="Footer">
+  <div class="dot-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/biokind-logo.png" alt="Biokind Analytics" />
+        <p>Data science as a public good for the organizations that need it most.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="index.html#services">Donor analysis</a>
+        <a href="index.html#services">Patient analysis</a>
+        <a href="index.html#services">Event analysis</a>
+        <a href="index.html#how">Engagement model</a>
+      </div>
+      <div class="foot-col">
+        <h4>Network</h4>
+        <a href="index.html#chapters">University chapters</a>
+        <a href="index.html#chapters">Nonprofit partners</a>
+        <a href="Press.html#blog">Blog</a>
+        <a href="Press.html">Press &amp; media</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:admin@biokind.org">admin@biokind.org</a>
+        <a href="mailto:admin@biokind.org?subject=Media%20inquiry">Media inquiries</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Biokind Analytics</span>
+      <span>Privacy · Terms · Data handling</span>
+    </div>
+  </div>
+</footer>
+
+<script src="posts.js"></script>
+<script>
+(function () {
+  var posts = window.BIOKIND_POSTS || [];
+  function getSlug() {
+    var hash = decodeURIComponent((location.hash || '').replace(/^#/, ''));
+    if (hash) return hash;
+    return new URLSearchParams(location.search).get('slug') || '';
+  }
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  };
+
+  function render() {
+    var root = document.getElementById('postRoot');
+    var slug = getSlug();
+    var post = posts.find(function (p) { return p.slug === slug; });
+
+    if (!post) {
+      root.innerHTML =
+        '<section class="post-missing"><div class="container">' +
+        '<span class="eyebrow">Not found</span>' +
+        '<h1 class="h2">We couldn\'t find that post.</h1>' +
+        '<p class="lead">It may have been moved or renamed.</p>' +
+        '<a class="btn btn-primary" href="Press.html#blog">Back to all posts<span class="arrow">→</span></a>' +
+        '</div></section>';
+      return;
+    }
+
+    document.title = post.title + ' — Biokind Analytics';
+
+    var meta = [];
+    if (post.author) meta.push(esc(post.author));
+    if (post.date) meta.push(esc(post.date));
+
+    root.innerHTML =
+      '<article class="post">' +
+        '<div class="post-head"><div class="container post-narrow">' +
+          '<a class="post-back" href="Press.html#blog"><span class="arrow-back">←</span> All posts</a>' +
+          '<span class="blog-cat post-cat">' + esc(post.category || 'From the blog') + '</span>' +
+          '<h1 class="post-title">' + esc(post.title) + '</h1>' +
+          (meta.length ? '<div class="post-meta">' + meta.join('<span class="news-dot" aria-hidden="true"></span>') + '</div>' : '') +
+        '</div></div>' +
+        '<div class="container post-narrow">' +
+          '<div class="post-cover">' +
+            (post.cover
+              ? '<img class="post-cover-img" src="' + esc(post.cover) + '" alt="' + esc(post.title) + '" />'
+              : '<div class="post-cover-img cover-fallback"><img class="cover-mark" src="assets/biokind-emblem.png" alt="" /></div>') +
+            (post.chapter ? '<span class="blog-chapter">' + esc(post.chapter) + '</span>' : '') +
+          '</div>' +
+          '<div class="post-body">' + (post.body || '') + '</div>' +
+          '<div class="post-foot"><a class="btn btn-ghost" href="Press.html#blog"><span class="arrow-back">←</span> Back to all posts</a></div>' +
+        '</div>' +
+      '</article>';
+    window.scrollTo(0, 0);
+  }
+
+  render();
+  window.addEventListener('hashchange', render);
+})();
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
