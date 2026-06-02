@@ -33,22 +33,22 @@
 
 window.BIOKIND_POSTS = [
 
-  /* ---- TEMPLATE — copy this whole block to add a post ----
+  /* ---- TEMPLATE — copy this whole block, paste it above the first { below, fill in, save & push ----
   {
-    slug: "my-new-post",
-    title: "A headline for the post",
-    chapter: "UVA",
-    category: "Team spotlight",
-    date: "Fall 2025",
-    excerpt: "One sentence describing the post.",
-    author: "",
-    cover: "",
+    slug: "",           // Short, unique, lowercase-with-dashes. Becomes the URL: post.html#your-slug
+    title: "",          // Headline shown on the card and article page
+    chapter: "",        // Short label on the card cover, e.g. "UVA", "USC", "Network"
+    category: "",       // Pill above the title, e.g. "Team spotlight", "Field notes"
+    date: "",           // Free text, e.g. "Spring 2025" or "May 2025"
+    excerpt: "",        // One sentence shown on the card
+    author: "",         // Optional byline, e.g. "Biokind UVA Chapter"
+    cover: "",          // Optional image path, e.g. "assets/blog/my-image.jpg". Leave "" for default.
     body: `
-      <p>Your opening paragraph.</p>
-      <h2>A section</h2>
-      <p>More writing, with a <a href="https://example.com">link</a> if you like.</p>
+      <p>Opening paragraph.</p>
+      <h2>Section heading</h2>
+      <p>More text. <a href="https://example.com">Links</a> work inline.</p>
       <ul>
-        <li>A point</li>
+        <li>Bullet point</li>
         <li>Another point</li>
       </ul>
     `
