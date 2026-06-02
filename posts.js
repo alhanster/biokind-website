@@ -63,7 +63,7 @@ window.BIOKIND_POSTS = [
     date: "September 2025",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image1.png",
     body: `
 <p><img src="assets/blog/media/image1.png" /></p>
 <p>This past spring semester UVA biokind analytics had a 6
@@ -133,7 +133,7 @@ needed.</p>
     date: "March 2025",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image2.png",
     body: `
 <p>Starting off, we have the ALS Network team, led by project lead
 Amna Ali! In the team, we have our data scientists: Tracy Fang, Abhinav
@@ -182,7 +182,7 @@ Spring ’25!</p>
     date: "May 2024",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image25.png",
     body: `
 <p>The leadership of Biokind Analytics changed this semester at
 the University of Virginia because of the new calendar year. The
@@ -226,7 +226,7 @@ information on user demographics.</p>
     date: "May 2024",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image23.jpg",
     body: `
 <p><img src="assets/blog/media/image23.jpg" /></p>
 <p>Rice University Chapter</p>
@@ -254,7 +254,7 @@ the Department of Statistics.</p>
     date: "May 2024",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image17.jpg",
     body: `
 <p><img src="assets/blog/media/image17.jpg" /></p>
 <p>UW-Madison Chapter</p>
@@ -279,7 +279,7 @@ with Dr. David Hansen, the chapter faculty advisor.</p>
     date: "May 2024",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image36.jpg",
     body: `
 <p>Last week on Tuesday, April 27th, three teams from the
 University of Virginia chapter presented their final projects at the
@@ -314,7 +314,7 @@ in the future.</p>
     date: "April 2024",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image41.jpg",
     body: `
 <p>Every Friday, our analysts at the University of North Carolina
 at Chapel Hill chapter meet to work on their ongoing project with a
@@ -338,7 +338,7 @@ nonprofit in April.</p>
     date: "March 2024",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image27.jpg",
     body: `
 <p>On February 4th, our Rice Biokind Chapter had their first
 general body meeting for their spring semester. Teams and non-profit
@@ -363,7 +363,7 @@ apply different data science tools to their data sets.</p>
     date: "December 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image64.jpg",
     body: `
 <p>Biokind Analytics has expanded to the University of Virginia,
 where the local organization is thriving with 21 members and three
@@ -410,7 +410,7 @@ partners.</p>
     date: "November 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image60.jpg",
     body: `
 <p>The UW-Madison Biokind Analytics leadership team hosted a
 seminar on essential and interesting R packages. The team covered data
@@ -429,7 +429,7 @@ tidyverse, ggplot, and mapview.</p>
     date: "November 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image30.png",
     body: `
 <p>Meet our University of California San Diego Biokind Analytics
 team for the fall 2023 semester!</p>
@@ -464,7 +464,7 @@ Director) (not pictured)</p>
     date: "November 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image28.png",
     body: `
 <p>On October 19, our USC Chapter had their first general body
 meeting for the Fall 2023 semester. In this meeting, members played ice
@@ -486,7 +486,7 @@ by January 2024.</p>
     date: "October 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image14.jpg",
     body: `
 <p>On September 30th, our Rice Biokind Chapter had their first
 general body meeting for their academic year. Teams for each non-profit
@@ -512,7 +512,7 @@ apply different data science tools to their data sets.</p>
     date: "October 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image11.png",
     body: `
 <p>The chapter founders are a group of students from universities
 all across the world who will take their experiences working together
@@ -554,7 +554,7 @@ of Toronto studying computer science.</p>
     date: "May 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image38.jpg",
     body: `
 <p>Meet our University of Wisconsin-Madison Biokind Analytics team
 for the spring 2023 semester!</p>
@@ -584,7 +584,7 @@ Tumi Samuel-Ipaye (’25), Fatimah Mohammed (‘25) and Faith Murei
     date: "April 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image26.jpg",
     body: `
 <p>Meet our UVA Biokind Analytics team for the spring 2023
 semester!</p>
@@ -614,7 +614,7 @@ followed by Yuqi Pang (’24) and VBCF representative Erin Steigleder
     date: "April 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image73.jpg",
     body: `
 <p><img src="assets/blog/media/image73.jpg" /></p>
 <p>Rice Biokind Analytics Chapter</p>
@@ -654,7 +654,7 @@ achieving our goal of helping local non-profits.</p>
     date: "April 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image47.jpg",
     body: `
 <p>Meet our UCSD Biokind Analytics team for the spring 2023
 semester!</p>
@@ -683,7 +683,7 @@ pictured).</p>
     date: "April 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image61.png",
     body: `
 <p>The chapter founders are a group of students from universities
 all across the United States who will take their experiences working
@@ -748,7 +748,7 @@ bring to their communities after this summer!</p>
     date: "March 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image45.jpg",
     body: `
 <p>On March 5th, the Rice Biokind Analytics leadership team hosted
 a seminar on essential and interesting R packages. The team covered data
@@ -774,7 +774,7 @@ their final presentation in late April!</p>
     date: "January 2023",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image74.jpg",
     body: `
 <p>Meet our Rice Biokind Analytics teams for the spring 2023
 semester!</p>
@@ -853,7 +853,7 @@ pictured).</p>
     date: "November 2022",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image68.jpg",
     body: `
 <p>After over three months of hard work, the Rice Biokind
 Analytics teams finally presented their results to the Rice faculty at
@@ -893,7 +893,7 @@ our wonderful members and advisors.</p>
     date: "October 2022",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image54.png",
     body: `
 <p>The chapter founders are a group of students from universities
 all across the United States who will take their experiences working
@@ -935,7 +935,7 @@ December!</p>
     date: "September 2022",
     excerpt: "",
     author: "",
-    cover: "",
+    cover: "assets/blog/media/image77.jpg",
     body: `
 <p>Last Sunday, September 18th, Biokind Analytics had its first
 meeting with all of its members. Most excitingly, the teams for each
