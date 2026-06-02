@@ -1390,6 +1390,9 @@ footer .dot-grid {
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
   .section { padding: 60px 0; }
+  .hero-content { padding-top: 80px; padding-bottom: 40px; }
+  .hero-full { min-height: 0; }
+  .hero-stats-bar { position: relative; bottom: auto; }
   .hero-stats { grid-template-columns: 1fr; }
   .hero-stats .stat { border-right: none; border-bottom: 1px solid var(--line); }
   .impact-grid { grid-template-columns: 1fr; }
