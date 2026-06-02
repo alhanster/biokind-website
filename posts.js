@@ -220,8 +220,7 @@ information on user demographics.</p>
 
   {
     slug: "rice-chapter-final-evaluation-spring-24", // 2024-05-07
-    title: "Rice Chapter:
-Final Evaluation Spring '24",
+    title: "Rice Chapter: Final Evaluation Spring '24",
     chapter: "",
     category: "Team spotlight",
     date: "May 2024",
@@ -249,8 +248,7 @@ the Department of Statistics.</p>
 
   {
     slug: "uw-madison-chapter-final-evaluation-spring-24", // 2024-05-05
-    title: "UW-Madison
-Chapter: Final Evaluation Spring '24",
+    title: "UW-Madison Chapter: Final Evaluation Spring '24",
     chapter: "",
     category: "Team spotlight",
     date: "May 2024",
@@ -275,8 +273,7 @@ with Dr. David Hansen, the chapter faculty advisor.</p>
 
   {
     slug: "uva-chapter-final-evaluation-spring-24", // 2024-05-03
-    title: "UVA Chapter: Final
-Evaluation Spring '24",
+    title: "UVA Chapter: Final Evaluation Spring '24",
     chapter: "",
     category: "Team spotlight",
     date: "May 2024",
@@ -311,8 +308,7 @@ in the future.</p>
 
   {
     slug: "unc-chapel-hill-chapter-meeting", // 2024-04-12
-    title: "UNC Chapel Hill Chapter:
-Meeting",
+    title: "UNC Chapel Hill Chapter: Meeting",
     chapter: "",
     category: "Team spotlight",
     date: "April 2024",
@@ -336,8 +332,7 @@ nonprofit in April.</p>
 
   {
     slug: "rice-chapter-spring-meeting-2024", // 2024-03-10
-    title: "Rice Chapter: Spring
-Meeting 2024",
+    title: "Rice Chapter: Spring Meeting 2024",
     chapter: "",
     category: "Team spotlight",
     date: "March 2024",
@@ -409,8 +404,7 @@ partners.</p>
 
   {
     slug: "uw-madison-biokind-seminar", // 2023-11-16
-    title: "UW-Madison Biokind
-Seminar",
+    title: "UW-Madison Biokind Seminar",
     chapter: "",
     category: "Team spotlight",
     date: "November 2023",
@@ -486,8 +480,7 @@ by January 2024.</p>
 
   {
     slug: "rice-chapter-fall-meeting-2023", // 2023-10-16
-    title: "Rice Chapter: Fall Meeting
-2023",
+    title: "Rice Chapter: Fall Meeting 2023",
     chapter: "",
     category: "Team spotlight",
     date: "October 2023",
@@ -513,8 +506,7 @@ apply different data science tools to their data sets.</p>
 
   {
     slug: "chapter-founder-team-fall-2023", // 2023-10-04
-    title: "Chapter Founder Team Fall
-2023",
+    title: "Chapter Founder Team Fall 2023",
     chapter: "",
     category: "Team spotlight",
     date: "October 2023",
@@ -556,8 +548,7 @@ of Toronto studying computer science.</p>
 
   {
     slug: "uw-madison-spring-2023-teams", // 2023-05-18
-    title: "UW-Madison Spring 2023
-Teams",
+    title: "UW-Madison Spring 2023 Teams",
     chapter: "",
     category: "Team spotlight",
     date: "May 2023",
@@ -617,8 +608,7 @@ followed by Yuqi Pang (’24) and VBCF representative Erin Steigleder
 
   {
     slug: "rice-chapter-final-evaluation-spring-23", // 2023-04-25
-    title: "Rice Chapter:
-Final Evaluation Spring '23",
+    title: "Rice Chapter: Final Evaluation Spring '23",
     chapter: "",
     category: "Team spotlight",
     date: "April 2023",
@@ -857,8 +847,7 @@ pictured).</p>
 
   {
     slug: "rice-chapter-final-evaluation", // 2022-11-23
-    title: "Rice Chapter: Final
-Evaluation",
+    title: "Rice Chapter: Final Evaluation",
     chapter: "",
     category: "Team spotlight",
     date: "November 2022",
@@ -940,8 +929,7 @@ December!</p>
 
   {
     slug: "rice-chapter-first-meeting", // 2022-09-24
-    title: "Rice Chapter: First
-Meeting",
+    title: "Rice Chapter: First Meeting",
     chapter: "",
     category: "Team spotlight",
     date: "September 2022",
