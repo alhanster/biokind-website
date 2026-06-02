@@ -312,5 +312,26 @@
     requestAnimationFrame(animate);
   }
 
+  // ---- Mobile nav toggle ----
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const open = document.body.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-inner') && document.body.classList.contains('nav-open')) {
+        document.body.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // ---- Smooth-scroll already via CSS scroll-behavior. Done. ----
 })();
